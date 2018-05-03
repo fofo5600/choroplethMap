@@ -4,17 +4,56 @@
 
 </div>
 
-<div style="transform: translate3d(30px, 0px, 0px);">
-  <label>
-    <input type="radio" ng-model="data.sex" value="">
-    Ambos
-  </label>
-  <label>
-    <input type="radio" ng-model="data.sex" value="male">
-    M
-  </label>
-  <label>
-    <input type="radio" ng-model="data.sex" value="female">
-    F
-  </label>
-</div>
+<hr>
+
+<form name="myForm">
+
+  <div style="transform: translate3d(30px, 0px, 0px);">
+    sexo
+    <label>
+      <input type="radio" ng-model="data.sex" value="">
+      Ambos
+    </label>
+    <label>
+      <input type="radio" ng-model="data.sex" value="male">
+      M
+    </label>
+    <label>
+      <input type="radio" ng-model="data.sex" value="female">
+      F
+    </label>
+  </div>
+
+  <hr>
+  Edad mínima: <input type="range" list="tickmarks" ng-model="data.edadMayorQ" min="{{data.min}}"  max="{{data.edadMenorQ}}" style="width: 184px;">
+  Edad maxima: <input type="range" list="tickmarks" ng-model="data.edadMenorQ" min="{{data.edadMayorQ}}"  max="{{data.max}}" style="width: 184px;">
+  <br>
+  Edad Min: <input ng-model="data.edadMayorQ" readonly>
+  Edad Max: <input ng-model="data.edadMenorQ" readonly><br>
+
+  <datalist id="tickmarks">
+    <option value=15 label="0%">
+    <option value="16">
+    <option value="17">
+    <option value="18">
+    <option value="19">
+    <option value="20" label="50%">
+    <option value="21">
+    <option value="22">
+    <option value="23">
+    <option value="24">
+    <option value="25" label="100%">
+    <option value="26" label="100%">
+    <option value="27" label="100%">
+    <option value="28" label="100%">
+    <option value="29" label="100%">
+    <option value="30" label="100%">
+  </datalist>
+
+  <hr>
+
+  <button ng-click="filtroPaises()">
+    Actualizar mapa
+  </button>
+
+</form>

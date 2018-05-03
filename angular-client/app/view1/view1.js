@@ -17,9 +17,12 @@ angular.module('myApp.view1', ['ngRoute'])
   $scope.geoJson = {};
   $scope.data = {
     sex: "",
-    edadMayorQ: "",
-    edadMenorQ: ""
+    edadMayorQ: 15,
+    edadMenorQ: 30,
+    min: 15,
+    max: 30
   };
+
 
   // Carga de mapa basico
   var mymap = L.map('map-canvas').setView([51.505, -0.09], 13),
@@ -104,10 +107,24 @@ angular.module('myApp.view1', ['ngRoute'])
       }
 
 
+    // FUNCIONES GUI
 
-    // LLAMADO AL SERVIDOR
+    $scope.$gui = {
 
-    function filtroPaises () {
+      cambiarMaxMin: function () {
+
+        $scope.data.min = $scope.data.edadMayorQ;
+        $scope.data.max = $scope.data.edadMenorQ;      
+
+      }
+
+    }
+
+
+
+    // LLAMADO AL SERVICIO API
+
+    $scope.filtroPaises = function () {
 
       var req = {
            method: 'POST',
