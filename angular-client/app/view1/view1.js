@@ -24,7 +24,7 @@ angular.module('myApp.view1', ['ngRoute'])
   };
 
 
-  // Carga de mapa basico
+  // Carga de mapa basico con leaflet
   var mymap = L.map('map-canvas').setView([51.505, -0.09], 13),
   accessToken = 'pk.eyJ1IjoiZm9mbzU2MDAiLCJhIjoiY2pnbGVsMGgxMW5sZjJxbDFlc2o0YzBjdSJ9.RgU88N4uzWd5YJok-5PKWQ'; // TOKN DEL MAPA
 
@@ -50,7 +50,6 @@ angular.module('myApp.view1', ['ngRoute'])
           grades = [0, 1, 10, 50, 100, 200, 300, 500],
           labels = [];
 
-      // loop through our density intervals and generate a label with a colored square for each interval
       for (var i = 0; i < grades.length; i++) {
           div.innerHTML +=
               '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -105,21 +104,6 @@ angular.module('myApp.view1', ['ngRoute'])
            d > 1   ? '#FED976' :
                       '#FFEDA0';
       }
-
-
-    // FUNCIONES GUI
-
-    $scope.$gui = {
-
-      cambiarMaxMin: function () {
-
-        $scope.data.min = $scope.data.edadMayorQ;
-        $scope.data.max = $scope.data.edadMenorQ;      
-
-      }
-
-    }
-
 
 
     // LLAMADO AL SERVICIO API

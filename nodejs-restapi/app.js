@@ -13,24 +13,20 @@ app.use(bodyParser.json());
 
 // API ENDPOINTS
 
-app
+  app
   .route("/user")
   .get(userController.listAllUsers)
   .post(userController.createNewUser);
 
-app
-.route("/paisesFiltro")
-.post(userController.cityByNumUser);
+  app
+  .route("/paisesFiltro")
+  .post(userController.cityByNumUser);
 
   app
     .route("/datacsv")
     .post(userController.csvToDB);
 
-app
-  .route("/user/delete")
-  .get(userController.readUser)
-  .put(userController.updateUser)
-  .post(userController.deleteUser);
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
